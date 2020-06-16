@@ -1,4 +1,6 @@
-%div
-  %h2= question.title
-  .edit-link= link_to 'edit', edit_question_path(question)
-  = raw question.html_content
+%div.ask-question.collapsed{id: "question-#{question.id}"}
+  %h2.ask-question-title{onclick: "accordianToggle('question-#{question.id}')"}
+    =question.title
+    .edit-link= link_to 'edit', edit_question_path(question)
+
+  .ask-question-content= raw question.html_content
